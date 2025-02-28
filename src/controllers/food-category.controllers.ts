@@ -15,8 +15,8 @@ export const createFoodCategory = async (req: Request, res: Response) => {
 
 export const getFoodCategory = async (req: Request, res: Response) => {
   try {
-    const getCategoryData = req.body;
-    const newGetCategory = await foodCategoryModel.find(getCategoryData);
+    // const getCategoryData = req.body;
+    const newGetCategory = await foodCategoryModel.find();
     res
       .status(200)
       .json({ message: "Succesfully getFoodCategory", newGetCategory });

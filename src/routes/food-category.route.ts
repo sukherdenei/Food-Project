@@ -10,7 +10,7 @@ const categoryRoute = express.Router();
 
 categoryRoute.post("/", createFoodCategory);
 categoryRoute.get("/", getFoodCategory);
-categoryRoute.delete("/", getFoodCategoryDelete);
-categoryRoute.put("/", getFoodCategoryPut);
+categoryRoute.delete("/:foodCategoryId", getFoodCategoryDelete);
+categoryRoute.put("/:food-categoryId", getFoodCategoryPut);
 
 export default categoryRoute;
