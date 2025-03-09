@@ -1,8 +1,16 @@
 import express, { Router } from "express";
-import { postFood } from "../controllers/food-order";
+import {
+  createFood,
+  deleteFood,
+  getFoodById,
+  updateFood,
+} from "../services/food.controller";
 
-const orderRoute = express.Router();
+const foodOrderRoute = express.Router();
 
-orderRoute.get("/", postFood);
+foodOrderRoute.post("/", createFood);
+foodOrderRoute.get("/", getFoodById);
+foodOrderRoute.put("/:footCategoryId", updateFood);
+foodOrderRoute.delete("/:footCategoryId", deleteFood);
 
-export default orderRoute;
+export default foodOrderRoute;

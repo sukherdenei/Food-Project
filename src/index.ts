@@ -2,12 +2,14 @@ import bodyParser from "body-parser";
 import express from "express";
 import { configDotenv } from "dotenv";
 import cors from "cors";
-import { connetMongoDb } from "./database/db";
+import { connectMongoDb } from "./database/db";
 import categoryRoute from "./routes/food-category.route";
-import orderRoute from "./routes/food-order";
+import foodRoute from "./routes/food-order";
+import { userRoute } from "./routes/user.route";
+import foodOrderRoute from "./routes/food-order";
 
 configDotenv();
-connetMongoDb();
+connectMongoDb();
 
 const app = express();
 
@@ -16,7 +18,9 @@ app.use(bodyParser.json());
 const port = process.env.PORT;
 
 app.use("/food-category", categoryRoute);
-app.use("/food", orderRoute);
+app.use("/foods", foodRoute);
+app.use("/user", userRoute);
+app.use("/food-order", foodOrderRoute);
 
 app.listen(port, () => {
   console.log(`$erver running on port: ${port}`);
