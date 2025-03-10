@@ -5,9 +5,9 @@ type UserSchemeType = {
   password: String;
   phoneNumber: String;
   address: String;
-  role: String;
-  isVerified: Boolean;
-  timestamps: true;
+  role?: String;
+  isVerified?: Boolean;
+  timestamps?: true;
 };
 
 const userScheme: Schema = new Schema(
@@ -16,8 +16,9 @@ const userScheme: Schema = new Schema(
     password: { type: String, required: true },
     phoneNumber: { type: String, required: true },
     address: { type: String, required: true },
-    role: { type: String, required: true },
+    // role: { type: String, required: true },
     isVerified: { type: String, required: true },
+    role: ["user", "admin"],
   },
   { timestamps: true }
 );

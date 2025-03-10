@@ -16,12 +16,12 @@ export const getAuthentication = async (req: Request, res: Response) => {
 export const createAuthSign = async (req: Request, res: Response) => {
   try {
     const createAuth = req.body;
-    const newCreate = await authenticationModel.create(createAuth);
+    const newCreate = await authenticationModel.findOne(createAuth);
     res
-      .status(201)
-      .json({ message: "Successfully created authentication", newCreate });
+      .status(200)
+      .json({ message: "Successfully sign in authentication", newCreate });
   } catch (error) {
-    res.status(500).json({ message: "Error in create authentication", error });
+    res.status(500).json({ message: "Error in sign in authentication", error });
   }
 };
 
@@ -32,5 +32,19 @@ export const createSignUp = async (req: Request, res: Response) => {
     res.status(201).json({ message: "Successfully sign up", newSignUp });
   } catch (error) {
     res.status(500).json({ message: "Error in sign up", error });
+  }
+};
+
+export const deleteAuth = async (req: Request, res: Response) => {
+  try {
+    const { authId } = req.params;
+
+    await authenticationModel.findByIdAndDelete(authId);
+    res.status(200).json({
+      message: "Successfully delete the authentication by id",
+      authId,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error in delete authentication", error });
   }
 };

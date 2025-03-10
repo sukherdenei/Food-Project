@@ -9,9 +9,9 @@ import {
 const userRoute = Router();
 
 userRoute
-  .post("/", createUser)
+  .post("/sign-up", createUser)
   .get("/", getUsers)
-  .delete("/", deleteUser)
+  .delete("/userId", deleteUser)
   .put("/", updateUser);
 
 export { userRoute };
