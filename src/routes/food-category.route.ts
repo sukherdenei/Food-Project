@@ -4,7 +4,7 @@ import {
   getFoodCategory,
   getFoodCategoryDelete,
   getFoodCategoryPut,
-} from "../controllers/food-category.controllers";
+} from "../services/food-category.controllers";
 
 const categoryRoute = express.Router();
 

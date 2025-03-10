@@ -3,18 +3,13 @@ import mongoose, { Schema } from "mongoose";
 type AuthSchemaType = {
   email: String;
   password: String;
-  refreshToken?: String;
-  resetPasswordToken?: String;
-  resetPasswordExpires?: Date;
 };
 
 const AuthSchema: Schema = new Schema(
   {
     email: { type: String, required: true },
     password: { type: String, required: true },
-    refreshToken: { type: String },
-    resetPasswordExpires: { type: String },
-    resetPasswordToken: { type: String },
+    phonenumber: { type: Number },
   },
   { timestamps: true }
 );

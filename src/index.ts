@@ -7,6 +7,7 @@ import categoryRoute from "./routes/food-category.route";
 import foodRoute from "./routes/food-order";
 import { userRoute } from "./routes/user.route";
 import foodOrderRoute from "./routes/food-order";
+import { authenticationRoute } from "./routes/authentication-route";
 
 configDotenv();
 connectMongoDb();
@@ -21,6 +22,7 @@ app.use("/food-category", categoryRoute);
 app.use("/foods", foodRoute);
 app.use("/user", userRoute);
 app.use("/food-order", foodOrderRoute);
+app.use("/auth", authenticationRoute);
 
 app.listen(port, () => {
   console.log(`$erver running on port: ${port}`);
