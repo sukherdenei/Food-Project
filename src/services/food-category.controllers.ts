@@ -43,6 +43,7 @@ export const getFoodCategoryPut = async (req: Request, res: Response) => {
 
 export const getFoodCategoryDelete = async (req: Request, res: Response) => {
   const { foodCategoryId } = req.params;
+  console.log(foodCategoryId);
   try {
     const deleteCategory = await foodCategoryModel.deleteOne({
       _id: foodCategoryId,
