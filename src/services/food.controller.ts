@@ -28,7 +28,7 @@ export const getFoodById = async (req: Request, res: Response) => {
 
 export const getFoods = async (req: Request, res: Response) => {
   try {
-    const getFood = await foodModel.find();
+    const getFood = await foodModel.find().populate("category");
     res.status(200).json({ message: "Successfully got the food", getFood });
   } catch (error) {
     res.status(500).json({ message: "Error in got food", error });
