@@ -8,6 +8,8 @@ export const resetPassword = async (req: Request, res: Response) => {
   try {
     const { password, token } = req.body;
 
+    console.log("pass", password);
+
     if (!token) {
       res.status(400).json({ message: "Token bhgui bna" });
       return;
@@ -23,8 +25,8 @@ export const resetPassword = async (req: Request, res: Response) => {
     });
     res
       .status(200)
-      .json({ message: "Tanii password amjilttai soligdlo", data: user });
+      .json({ message: "your password successfully changed", data: user });
   } catch (error) {
-    res.status(500).json({ message: "Aldaa garlaa", error });
+    res.status(500).json({ message: "Error", error });
   }
 };

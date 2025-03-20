@@ -11,6 +11,6 @@ authUserRoute.post("/signUp", singUp);
 authUserRoute.post("/signIn", singIn);
 authUserRoute.get("/refresh", authRefresh);
 authUserRoute.post("/reset-password-request", forgetPassword);
-authUserRoute.post("/forget-password", resetPassword);
+authUserRoute.post("/reset-password", resetPassword);
 
 export default authUserRoute;

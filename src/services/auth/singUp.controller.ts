@@ -5,14 +5,13 @@ import userModel from "../../models/user.model";
 export const singUp = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
+    console.log(password);
     if (!email) {
       res.status(401).json({ message: "enter a valid email address" });
       return;
     }
     console.log("raw password", password);
-
     const hashedPassword = hashSync(password, 10);
-
     const createdUser = await userModel.create({
       email,
       password: hashedPassword,
